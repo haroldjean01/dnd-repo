@@ -5,7 +5,7 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 /* Auth related functions */
 
 export function getUser() {
-    return client.auth.user();
+    return client.auth.session() && client.auth.session().user;
 }
 
 export async function signUpUser(email, password) {
@@ -26,5 +26,24 @@ export async function signOutUser() {
     return await client.auth.signOut();
 }
 
+function checkError(response) {
+    return response.error ? console.error(response.error) : response.data;
+}
+
 /* Data functions */
 
+export async function getEnemies() {
+    const response = await client.from('enemies').select();
+
+    return checkError(response);
+}
+
+
+
+
+
+
+
+
+// console checks
+console.log('enemies', getEnemies());

@@ -14,7 +14,7 @@
             defer
             src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"
         ></script>
-        <script type="module" src="app.js"></script>
+        <script type="module" src="battle.js"></script>
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,16 +62,9 @@
                 <div id="create-div">
                     <div id="preset-selector">
                         <button id="player-option" type="submit">Players</button>
-                        <div
-                            style="
-                                width: 150px;
-                                height: 150px;
-                                line-height: 3em;
-                                overflow: scroll;
-                                border: thin #000 solid;
-                                padding: 5px;
-                            "
-                        ></div>
+                        <div class="preset-list">
+                            <!-- ul goes here -->
+                        </div>
                         <button id="enemy-option">Enemies</button>
                     </div>
                     <div id="create-form-div">

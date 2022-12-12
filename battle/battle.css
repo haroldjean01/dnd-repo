@@ -89,3 +89,18 @@
 .enemy {
     display: flex;
 }
+
+.preset-list {
+    width: 150px;
+    height: 150px;
+    line-height: 3em;
+    overflow: scroll;
+    border: thin #000 solid;
+    padding: 5px;
+}
+
+.preset {
+    font-size: 10px;
+    text-decoration: dotted;
+    cursor: pointer;
+}
