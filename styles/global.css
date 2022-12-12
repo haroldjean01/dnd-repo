@@ -54,11 +54,12 @@ main {
 }
 
 .avatar {
-    height: 36px;
-    width: 36px;
+    height: 100px;
+    width: 100px;
     object-fit: cover;
     border: 1px solid var(--placeholder-color);
     border-radius: 100%;
+    justify-content: center;
 }
 
 .error {

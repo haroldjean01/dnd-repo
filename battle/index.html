@@ -74,9 +74,11 @@
                         ></div>
                         <button id="enemy-option">Enemies</button>
                     </div>
-                    <div id="create-div">
-                        <form id="create-form" type" ="submit">
-                            <label name="name">name<input type="text" /></label>
+                    <div id="create-form-div">
+                        <img id="image-preview" class="avatar" src="/assets/default-player.jpg"/>
+                        <form id="create-form">
+                            <label name="image">Image <input type="file" /></label>
+                            <label name="name">Name<input type="text" /></label>
                             <label name="armor">AC<input type="text" /></label>
                             <label name="initiative">Init<input type="text" /></label>
                             <label name="hp">HP<input type="text" /></label>
@@ -86,6 +88,7 @@
                                 <button type="submit" id="add-enemy">Add Enemy</button>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
                 <div id="enemies-div">
