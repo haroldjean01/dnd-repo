@@ -1,0 +1,84 @@
+.battle-page {
+    display: flex;
+    justify-content: space-between;
+}
+
+#players-div {
+    display: flex;
+    flex-direction: column;
+    border: dotted black 1px;
+    gap: 35px;
+}
+
+#enemies-div {
+    border: dotted black 1px;
+}
+
+.player-health {
+    display: flex;
+    flex-direction: column;
+}
+
+.enemy-health {
+    display: flex;
+    flex-direction: column;
+}
+
+#create-div {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    gap: 30px;
+    border: dotted black 1px;
+}
+
+#preset-selector {
+    display: flex;
+    justify-content: center;
+    border: dotted black 1px;
+}
+
+#preset-selector button {
+    height: fit-content;
+}
+
+#create-div {
+    display: flex;
+    flex-direction: column;
+}
+
+#create-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#create-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.player-img {
+    border: solid black 1px;
+    height: 150px;
+    width: 150px;
+    background-image: url(../assets/default-player.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.enemy-img {
+    border: solid black 1px;
+    height: 150px;
+    width: 150px;
+    background-image: url(../assets/goblin.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.player {
+    display: flex;
+}
+
+.enemy {
+    display: flex;
+}
