@@ -1,6 +1,6 @@
 // imports
 
-import { getEnemies, getEnemyPresets, getPlayers } from '../fetch-utils.js';
+import { getEnemies, getEnemyPresets, getPlayers, getUser, uploadImage } from '../fetch-utils.js';
 import { renderPresets } from '../render-utls.js';
 
 // DOM
@@ -44,6 +44,14 @@ addEnemyButton.addEventListener('click', async (e) => {
         hp: data.get('hp'),
         init: data.get('init'),
     };
+    const imageFile = data.get('image');
+    if (imageFile.size) {
+        const imagePath = `${enemyObject.id}/${imageFile.name}`;
+
+        const url = await uploadImage(imagePath, imageFile);
+
+        enemyObject.image = url;
+    }
 });
 
 // debug logs
