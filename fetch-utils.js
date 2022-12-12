@@ -38,7 +38,11 @@ export async function getEnemies() {
     return checkError(response);
 }
 
+export async function getPlayers() {
+    const response = await client.from('players').select();
 
+    return checkError(response);
+}
 
 
 
@@ -47,3 +51,4 @@ export async function getEnemies() {
 
 // console checks
 console.log('enemies', getEnemies());
+console.log('players', getPlayers());

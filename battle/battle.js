@@ -1,28 +1,34 @@
 // imports
 
-import { getEnemies } from '../fetch-utils.js';
+import { getEnemies, getPlayers } from '../fetch-utils.js';
 import { renderPresets } from '../render-utls.js';
 
 // DOM
 const presetEl = document.querySelector('.preset-list');
-const enemyButton = document.getElementById('enemy-option');
+const enemiesButton = document.getElementById('enemy-option');
+const playersButton = document.getElementById('player-option');
 
 
 // States
 
 // Events
 
-enemyButton.addEventListener('click', async () => {
+enemiesButton.addEventListener('click', async () => {
     const enemies = await getEnemies();
-    displayEnemyPresets(enemies);
+    displayPresets(enemies);
+});
+
+playersButton.addEventListener('click', async () => {
+    const players = await getPlayers();
+    displayPresets(players);
 });
 
 // Display
 
-function displayEnemyPresets(presets) {
+function displayPresets(presets) {
     presetEl.textContent = '';
-    for (let enemy of presets) {
-        const target = renderPresets(enemy);
+    for (let data of presets) {
+        const target = renderPresets(data);
         presetEl.append(target);
     }
 }
