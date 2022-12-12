@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- metadata -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+        <!-- title and favicon -->
+        <title>Battle</title>
+
+        <!-- js -->
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"
+        ></script>
+        <script type="module" src="app.js"></script>
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap"
+        />
+
+        <!-- css -->
+        <link rel="stylesheet" href="../styles/reset.css" />
+        <link rel="stylesheet" href="../styles/global.css" />
+        <!-- add link for page specific css -->
+    </head>
+
+    <body>
+        <header class="page-header">
+            <p class="title">DnD Repo</p>
+            <nav>
+                <a href="/">Home</a>
+                <a id="sign-out-link" href="auth">Sign Out</a>
+            </nav>
+        </header>
+
+        <main>
+            <div id="players-div">
+                <div class="player">
+                    <div class="player-health">
+                        <button id="increase-player">Increase</button>
+                        <input id="player-input" type="text" />
+                        <button id="decrease-player">Decrease</button>
+                    </div>
+                </div>
+            </div>
+            <div id="create-div">
+                <div id="preset-selector">
+                    <button id="player-option" type="submit">Player</button>
+                    <div
+                        style="
+                            width: 150px;
+                            height: 150px;
+                            line-height: 3em;
+                            overflow: scroll;
+                            border: thin #000 solid;
+                            padding: 5px;
+                        "
+                    ></div>
+                    <button id="enemy-option">Enemy</button>
+                </div>
+                <div id="create-form">
+                    <form type="submit">
+                        <label name="name">name<input type="text" /></label>
+                        <label name="armor">AC<input type="text" /></label>
+                        <label name="initiative">Init<input type="text" /></label>
+                        <label name="hp">HP<input type="text" /></label>
+                        <button type="submit" id="add-player">Add Player</button>
+                        <button type="submit" id="clear-form">Clear Form</button>
+                        <button type="submit" id="add-enemy">Add Enemy</button>
+                    </form>
+                </div>
+            </div>
+            <div id="enemies-div">
+                <div class="enemy">
+                    <div class="enemy-health">
+                        <button id="increase-enemy">Increase</button>
+                        <input id="enemy-input" type="text" />
+                        <button id="decrease-enemy">Decrease</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
