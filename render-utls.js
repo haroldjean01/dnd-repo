@@ -15,6 +15,5 @@ export function renderPresets(data) {
     //consolidate
     ul.append(li);
 
-
     return ul;
 }
