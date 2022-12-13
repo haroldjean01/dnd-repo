@@ -14,6 +14,7 @@ import { renderEnemies, renderPlayers, renderPresets } from '../render-utls.js';
 
 // DOM
 const presetEl = document.querySelector('.preset-list');
+const presetList = document.querySelector('.preset-ul');
 const formEl = document.querySelector('#create-form');
 const enemiesButton = document.getElementById('enemy-option');
 const playersButton = document.getElementById('player-option');
@@ -23,7 +24,15 @@ const enemiesDivEl = document.getElementById('enemies-div');
 const playersDivEl = document.getElementById('players-div');
 const formClear = document.getElementById('clear-form');
 const imagePreview = document.getElementById('image-preview');
-const imageInput = document.querySelector('[name=image');
+const debugButton = document.getElementById('debug');
+const nameInput = document.getElementById('name-input');
+
+// form Elements
+const imageInput = document.querySelector('[name=image]');
+const name = document.querySelector('[name=name]');
+const ac = document.querySelector('[name=armor]');
+const init = document.querySelector('[name=init]');
+const hp = document.querySelector('[name=hp]');
 
 // States
 
@@ -84,11 +93,15 @@ self.addEventListener('load', async () => {
 });
 
 enemiesButton.addEventListener('click', async () => {
+    presetEl.textContent = '';
+
     const enemies = await getEnemyPresets();
     displayPresets(enemies);
 });
 
 playersButton.addEventListener('click', async () => {
+    presetEl.textContent = '';
+
     const players = await getPlayerPresets();
     displayPresets(players);
 });
@@ -134,12 +147,25 @@ async function fetchAndDisplayPlayers() {
     }
 }
 
-function displayPresets(presets) {
+async function displayPresets(presets) {
     presetEl.textContent = '';
     for (let data of presets) {
-        const target = renderPresets(data);
-        presetEl.append(target);
+        const presetLi = document.createElement('li');
+        presetLi.textContent = data.name;
+        presetLi.classList.add('preset');
+        // const target = renderPresets(data);
+        presetLi.addEventListener('click', async () => {
+            name.value = data.name;
+            ac.value = data.ac;
+            init.value = data.init;
+            hp.value = data.hp;
+        });
+        presetList.append(presetLi);
     }
+    presetEl.append(presetList);
 }
 
 // debug logs
+debugButton.addEventListener('click', () => {
+    nameInput.value = 'debug';
+});

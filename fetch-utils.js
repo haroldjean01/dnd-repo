@@ -85,4 +85,4 @@ export async function uploadImage(imagePath, imageFile) {
 // console checks
 // console.log('enemies_Presets', getEnemyPresets());
 // console.log('players', getPlayers());
-console.log('getEnemies()', getEnemies());
+// console.log('getEnemies()', getEnemies());
