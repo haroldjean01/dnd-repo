@@ -1,7 +1,15 @@
 // imports
 
-import { createEnemy, getEnemyPresets, getPlayers, getUser, uploadImage, getEnemies } from '../fetch-utils.js';
-import { renderEnemies, renderPresets } from '../render-utls.js';
+import {
+    createEnemy,
+    getEnemyPresets,
+    getPlayers,
+    getUser,
+    uploadImage,
+    getEnemies,
+    createPlayer,
+} from '../fetch-utils.js';
+import { renderEnemies, renderPlayers, renderPresets } from '../render-utls.js';
 
 // DOM
 const presetEl = document.querySelector('.preset-list');
@@ -11,6 +19,7 @@ const playersButton = document.getElementById('player-option');
 const addEnemyButton = document.getElementById('add-enemy');
 const addPlayerButton = document.getElementById('add-player');
 const enemiesDivEl = document.getElementById('enemies-div');
+const playersDivEl = document.getElementById('players-div');
 const formClear = document.getElementById('clear-form');
 const imagePreview = document.getElementById('image-preview');
 const imageInput = document.querySelector('[name=image');
@@ -36,7 +45,6 @@ addEnemyButton.addEventListener('click', async (e) => {
         const url = await uploadImage(imagePath, imageFile);
 
         enemyObject.image = url;
-        console.log('url', url);
     }
 
     await createEnemy(enemyObject);
@@ -44,8 +52,34 @@ addEnemyButton.addEventListener('click', async (e) => {
     formEl.reset();
 });
 
+addPlayerButton.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    const user = await getUser();
+    const data = new FormData(formEl);
+    const playerObject = {
+        name: data.get('name'),
+        ac: data.get('armor'),
+        hp: data.get('hp'),
+        init: data.get('init'),
+    };
+    const imageFile = data.get('image');
+    if (imageFile.size) {
+        const imagePath = `${user.id}/${imageFile.name}`;
+
+        const url = await uploadImage(imagePath, imageFile);
+
+        playerObject.image = url;
+    }
+
+    await createPlayer(playerObject);
+    fetchAndDisplayPlayers();
+    formEl.reset();
+});
+
 self.addEventListener('load', async () => {
     fetchAndDisplayEnemies();
+    fetchAndDisplayPlayers();
 });
 
 enemiesButton.addEventListener('click', async () => {
@@ -84,6 +118,16 @@ async function fetchAndDisplayEnemies() {
     }
 }
 
+async function fetchAndDisplayPlayers() {
+    playersDivEl.textContent = '';
+
+    const players = await getPlayers();
+    for (let player of players) {
+        const playerEl = renderPlayers(player);
+        playersDivEl.append(playerEl);
+    }
+}
+
 function displayPresets(presets) {
     presetEl.textContent = '';
     for (let data of presets) {
@@ -91,6 +135,5 @@ function displayPresets(presets) {
         presetEl.append(target);
     }
 }
-
 
 // debug logs

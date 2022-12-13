@@ -56,6 +56,11 @@ export async function createEnemy(enemy) {
     return checkError(response);
 }
 
+export async function createPlayer(player) {
+    const response = await client.from('players').insert(player).single();
+    return checkError(response);
+}
+
 export async function uploadImage(imagePath, imageFile) {
     const bucket = await client.storage.from('avatars');
 
