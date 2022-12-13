@@ -1,6 +1,6 @@
 // imports
 
-import { getEnemies, getEnemyPresets, getPlayers, getUser, uploadImage } from '../fetch-utils.js';
+import { createEnemy, getEnemyPresets, getPlayers, getUser, uploadImage } from '../fetch-utils.js';
 import { renderPresets } from '../render-utls.js';
 
 // DOM
@@ -37,6 +37,8 @@ function displayPresets(presets) {
 
 addEnemyButton.addEventListener('click', async (e) => {
     e.preventDefault();
+
+    const user = await getUser();
     const data = new FormData(formEl);
     const enemyObject = {
         name: data.get('name'),
@@ -46,12 +48,15 @@ addEnemyButton.addEventListener('click', async (e) => {
     };
     const imageFile = data.get('image');
     if (imageFile.size) {
-        const imagePath = `${enemyObject.id}/${imageFile.name}`;
+        const imagePath = `${user.id}/${imageFile.name}`;
 
         const url = await uploadImage(imagePath, imageFile);
 
         enemyObject.image = url;
+        console.log('url', url);
     }
+
+    await createEnemy(enemyObject);
 });
 
 // debug logs

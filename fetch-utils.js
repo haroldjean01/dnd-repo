@@ -51,17 +51,17 @@ export async function createEnemy(enemy) {
 }
 
 export async function uploadImage(imagePath, imageFile) {
-    const bucket = client.storage.from('avatars');
+    const bucket = await client.storage.from('avatars');
 
     const response = await bucket.upload(imagePath, imageFile, {
         cacheControl: '3600',
         upsert: true,
     });
     if (response.error) {
-        return null;
+        return response.error;
     }
-
-    const url = `${SUPABASE_URL}/storage/v1/object/public/${response.data.Key}`;
+    console.log('response', response);
+    const url = `${SUPABASE_URL}/storage/v1/objects/public/${response.data.Key}`;
 
     return url;
 }
