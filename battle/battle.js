@@ -11,6 +11,7 @@ const playersButton = document.getElementById('player-option');
 const addEnemyButton = document.getElementById('add-enemy');
 const addPlayerButton = document.getElementById('add-player');
 const enemiesDivEl = document.getElementById('enemies-div');
+const formClear = document.getElementById('clear-form');
 
 // States
 
@@ -53,6 +54,10 @@ enemiesButton.addEventListener('click', async () => {
 playersButton.addEventListener('click', async () => {
     const players = await getPlayers();
     displayPresets(players);
+});
+
+formClear.addEventListener('click', () => {
+    formEl.reset();
 });
 
 // Display
