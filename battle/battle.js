@@ -93,10 +93,10 @@ playersButton.addEventListener('click', async () => {
     displayPresets(players);
 });
 
-playersButton.addEventListener('click', async () => {
-    const players = await getPlayers();
-    displayPresets(players);
-});
+// playersButton.addEventListener('click', async () => {
+//     const players = await getPlayers();
+//     displayPresets(players);
+// });
 
 formClear.addEventListener('click', () => {
     formEl.reset();
