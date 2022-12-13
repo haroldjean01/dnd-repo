@@ -8,6 +8,7 @@ import {
     uploadImage,
     getEnemies,
     createPlayer,
+    getPlayerPresets,
 } from '../fetch-utils.js';
 import { renderEnemies, renderPlayers, renderPresets } from '../render-utls.js';
 
@@ -85,6 +86,11 @@ self.addEventListener('load', async () => {
 enemiesButton.addEventListener('click', async () => {
     const enemies = await getEnemyPresets();
     displayPresets(enemies);
+});
+
+playersButton.addEventListener('click', async () => {
+    const players = await getPlayerPresets();
+    displayPresets(players);
 });
 
 playersButton.addEventListener('click', async () => {
