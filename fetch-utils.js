@@ -67,6 +67,15 @@ export async function createPlayer(player) {
     return checkError(response);
 }
 
+export async function createPlayerPreset(player) {
+    const response = await client
+        .from('player_presets')
+        .insert(player)
+        .single();
+    
+    return checkError(response);
+}
+
 export async function uploadImage(imagePath, imageFile) {
     const bucket = await client.storage.from('avatars');
 
