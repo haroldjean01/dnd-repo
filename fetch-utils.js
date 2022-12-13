@@ -39,6 +39,12 @@ export async function getEnemyPresets() {
     return checkError(response);
 }
 
+export async function getEnemies() {
+    const response = await client.from('enemies').select();
+
+    return checkError(response);
+}
+
 export async function getPlayers() {
     const response = await client.from('players').select();
 
@@ -60,8 +66,7 @@ export async function uploadImage(imagePath, imageFile) {
     if (response.error) {
         return response.error;
     }
-    console.log('response', response);
-    const url = `${SUPABASE_URL}/storage/v1/objects/public/${response.data.Key}`;
+    const url = `${SUPABASE_URL}/storage/v1/object/public/${response.data.Key}`;
 
     return url;
 }
@@ -69,3 +74,4 @@ export async function uploadImage(imagePath, imageFile) {
 // console checks
 // console.log('enemies_Presets', getEnemyPresets());
 // console.log('players', getPlayers());
+console.log('getEnemies()', getEnemies());

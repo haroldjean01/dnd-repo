@@ -1,7 +1,7 @@
 // imports
 
-import { createEnemy, getEnemyPresets, getPlayers, getUser, uploadImage } from '../fetch-utils.js';
-import { renderPresets } from '../render-utls.js';
+import { createEnemy, getEnemyPresets, getPlayers, getUser, uploadImage, getEnemies } from '../fetch-utils.js';
+import { renderEnemies, renderPresets } from '../render-utls.js';
 
 // DOM
 const presetEl = document.querySelector('.preset-list');
@@ -10,31 +10,11 @@ const enemiesButton = document.getElementById('enemy-option');
 const playersButton = document.getElementById('player-option');
 const addEnemyButton = document.getElementById('add-enemy');
 const addPlayerButton = document.getElementById('add-player');
+const enemiesDivEl = document.getElementById('enemies-div');
 
 // States
 
 // Events
-
-enemiesButton.addEventListener('click', async () => {
-    const enemies = await getEnemyPresets();
-    displayPresets(enemies);
-});
-
-playersButton.addEventListener('click', async () => {
-    const players = await getPlayers();
-    displayPresets(players);
-});
-
-// Display
-
-function displayPresets(presets) {
-    presetEl.textContent = '';
-    for (let data of presets) {
-        const target = renderPresets(data);
-        presetEl.append(target);
-    }
-}
-
 addEnemyButton.addEventListener('click', async (e) => {
     e.preventDefault();
 
@@ -57,6 +37,43 @@ addEnemyButton.addEventListener('click', async (e) => {
     }
 
     await createEnemy(enemyObject);
+    fetchAndDisplayEnemies();
+    formEl.reset();
 });
+
+self.addEventListener('load', async () => {
+    fetchAndDisplayEnemies();
+});
+
+enemiesButton.addEventListener('click', async () => {
+    const enemies = await getEnemyPresets();
+    displayPresets(enemies);
+});
+
+playersButton.addEventListener('click', async () => {
+    const players = await getPlayers();
+    displayPresets(players);
+});
+
+// Display
+
+async function fetchAndDisplayEnemies() {
+    enemiesDivEl.textContent = '';
+
+    const enemies = await getEnemies();
+    for (let enemy of enemies) {
+        const enemyEl = renderEnemies(enemy);
+        enemiesDivEl.append(enemyEl);
+    }
+}
+
+function displayPresets(presets) {
+    presetEl.textContent = '';
+    for (let data of presets) {
+        const target = renderPresets(data);
+        presetEl.append(target);
+    }
+}
+
 
 // debug logs
