@@ -15,7 +15,8 @@ body {
     height: 100vh;
     font-family: var(--primary-font);
     color: var(--text-color);
-    background: var(--background);
+    background-image: url('/assets/background-01.jpg');
+    background-size: 100px 100px;
     display: grid;
     grid-template-rows: auto 1fr;
 }
@@ -50,6 +51,7 @@ body {
 }
 
 main {
+    color: whitesmoke;
     padding: 20px;
 }
 
