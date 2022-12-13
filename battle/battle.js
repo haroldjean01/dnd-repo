@@ -93,14 +93,14 @@ self.addEventListener('load', async () => {
 });
 
 enemiesButton.addEventListener('click', async () => {
-    presetEl.textContent = '';
+    presetList.textContent = '';
 
     const enemies = await getEnemyPresets();
     displayPresets(enemies);
 });
 
 playersButton.addEventListener('click', async () => {
-    presetEl.textContent = '';
+    presetList.textContent = '';
 
     const players = await getPlayerPresets();
     displayPresets(players);
@@ -148,7 +148,6 @@ async function fetchAndDisplayPlayers() {
 }
 
 async function displayPresets(presets) {
-    presetEl.textContent = '';
     for (let data of presets) {
         const presetLi = document.createElement('li');
         presetLi.textContent = data.name;
