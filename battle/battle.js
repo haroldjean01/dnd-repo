@@ -12,6 +12,8 @@ const addEnemyButton = document.getElementById('add-enemy');
 const addPlayerButton = document.getElementById('add-player');
 const enemiesDivEl = document.getElementById('enemies-div');
 const formClear = document.getElementById('clear-form');
+const imagePreview = document.getElementById('image-preview');
+const imageInput = document.querySelector('[name=image');
 
 // States
 
@@ -58,6 +60,16 @@ playersButton.addEventListener('click', async () => {
 
 formClear.addEventListener('click', () => {
     formEl.reset();
+});
+
+imageInput.addEventListener('change', () => {
+    const file = imageInput.files[0];
+
+    if (file) {
+        imagePreview.src = URL.createObjectURL(file);
+    } else {
+        imagePreview.src = '/assets/default-player.jpg';
+    }
 });
 
 // Display
