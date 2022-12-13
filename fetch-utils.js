@@ -45,6 +45,12 @@ export async function getEnemies() {
     return checkError(response);
 }
 
+export async function getPlayerPresets() {
+    const response = await client.from('player_presets').select();
+
+    return checkError(response);
+}
+
 export async function getPlayers() {
     const response = await client.from('players').select();
 
@@ -79,4 +85,4 @@ export async function uploadImage(imagePath, imageFile) {
 // console checks
 // console.log('enemies_Presets', getEnemyPresets());
 // console.log('players', getPlayers());
-console.log('getEnemies()', getEnemies());
+// console.log('getEnemies()', getEnemies());
