@@ -88,7 +88,21 @@ export async function getEnemyById(id) {
 export async function decrementPlayerHealth(id, amount) {
     const player = await getPlayerById(id);
 
-    const response = await client.from('players').update({ hp: player.hp - amount });
+    const response = await client
+        .from('players')
+        .update({ hp: player.hp - amount })
+        .match({ id });
+
+    checkError(response);
+}
+
+export async function incrementPlayerHealth(id, amount) {
+    const player = await getPlayerById(id);
+
+    const response = await client
+        .from('players')
+        .update({ hp: player.hp - amount })
+        .match({ id });
 
     checkError(response);
 }

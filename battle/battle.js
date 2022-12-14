@@ -9,7 +9,7 @@ import {
     getEnemies,
     createPlayer,
     getPlayerPresets,
-    getPlayersById,
+    getPlayerById,
 } from '../fetch-utils.js';
 import { renderEnemies, renderPlayers, renderPresets } from '../render-utls.js';
 
@@ -89,7 +89,7 @@ addPlayerButton.addEventListener('click', async (e) => {
 });
 
 self.addEventListener('load', async () => {
-    await getPlayersById();
+    await getPlayerById();
     fetchAndDisplayEnemies();
     fetchAndDisplayPlayers();
 });
@@ -139,7 +139,7 @@ async function fetchAndDisplayEnemies() {
     }
 }
 
-async function fetchAndDisplayPlayers() {
+export async function fetchAndDisplayPlayers() {
     playersDivEl.textContent = '';
 
     const players = await getPlayers();

@@ -1,5 +1,6 @@
 // renders
 
+import { fetchAndDisplayPlayers } from './battle/battle.js';
 import { decrementPlayerHealth } from './fetch-utils.js';
 
 export function renderPresets(data) {
@@ -92,6 +93,7 @@ export function renderPlayers(data) {
 
     decreaseBtn.addEventListener('click', async () => {
         await decrementPlayerHealth(data.id, value.value);
+        await fetchAndDisplayPlayers();
     });
 
     // style
