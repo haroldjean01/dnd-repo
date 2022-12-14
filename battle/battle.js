@@ -34,6 +34,12 @@ const formAc = document.querySelector('[name=armor]');
 const formInit = document.querySelector('[name=init]');
 const formHp = document.querySelector('[name=hp]');
 const formImagePreset = document.getElementById('preset-image');
+const formSTR = document.querySelector('[name=str]');
+const formDEX = document.querySelector('[name=dex]');
+const formCON = document.querySelector('[name=con]');
+const formINT = document.querySelector('[name=int]');
+const formWIS = document.querySelector('[name=wis]');
+const formCHA = document.querySelector('[name=cha]');
 
 // States
 
@@ -84,6 +90,12 @@ addPlayerButton.addEventListener('click', async (e) => {
         ac: data.get('armor'),
         hp: data.get('hp'),
         init: data.get('init'),
+        STR: data.get('str'),
+        DEX: data.get('dex'),
+        CON: data.get('con'),
+        INT: data.get('int'),
+        WIS: data.get('wis'),
+        CHA: data.get('cha')
     };
     const imageFile = data.get('image');
     if (imageFile && imageFile.size) {
@@ -183,6 +195,12 @@ async function displayPresets(presets) {
             formAc.value = data.ac;
             formInit.value = data.init;
             formHp.value = data.hp;
+            formSTR.value = data.STR;
+            formDEX.value = data.DEX;
+            formCON.value = data.CON;
+            formINT.value = data.INT;
+            formWIS.value = data.WIS;
+            formCHA.value = data.CHA;
         });
         presetList.append(presetLi);
     }
