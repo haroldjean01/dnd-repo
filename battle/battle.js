@@ -129,7 +129,7 @@ imageInput.addEventListener('change', () => {
 
 // Display
 
-async function fetchAndDisplayEnemies() {
+export async function fetchAndDisplayEnemies() {
     enemiesDivEl.textContent = '';
 
     const enemies = await getEnemies();

@@ -1,7 +1,12 @@
 // renders
 
-import { fetchAndDisplayPlayers } from './battle/battle.js';
-import { decrementPlayerHealth } from './fetch-utils.js';
+import { fetchAndDisplayEnemies, fetchAndDisplayPlayers } from './battle/battle.js';
+import {
+    decrementEnemyHealth,
+    decrementPlayerHealth,
+    incrementEnemyHealth,
+    incrementPlayerHealth,
+} from './fetch-utils.js';
 
 export function renderPresets(data) {
     // create
@@ -46,6 +51,16 @@ export function renderEnemies(data) {
 
     increaseBtn.textContent = '+';
     decreaseBtn.textContent = '-';
+
+    decreaseBtn.addEventListener('click', async () => {
+        await decrementEnemyHealth(data.id, value.value);
+        await fetchAndDisplayEnemies();
+    });
+
+    increaseBtn.addEventListener('click', async () => {
+        await incrementEnemyHealth(data.id, value.value);
+        await fetchAndDisplayEnemies();
+    });
 
     // style
     enemyDiv.classList.add('enemy');
@@ -93,6 +108,11 @@ export function renderPlayers(data) {
 
     decreaseBtn.addEventListener('click', async () => {
         await decrementPlayerHealth(data.id, value.value);
+        await fetchAndDisplayPlayers();
+    });
+
+    increaseBtn.addEventListener('click', async () => {
+        await incrementPlayerHealth(data.id, value.value);
         await fetchAndDisplayPlayers();
     });
 

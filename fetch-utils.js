@@ -98,10 +98,33 @@ export async function decrementPlayerHealth(id, amount) {
 
 export async function incrementPlayerHealth(id, amount) {
     const player = await getPlayerById(id);
-
+    const number = Number(amount);
     const response = await client
         .from('players')
-        .update({ hp: player.hp - amount })
+        .update({ hp: player.hp + number })
+        .match({ id });
+
+    checkError(response);
+}
+
+export async function decrementEnemyHealth(id, amount) {
+    const enemy = await getEnemyById(id);
+    console.log('enemy.hp', enemy.hp);
+    const response = await client
+        .from('enemies')
+        .update({ hp: enemy.hp - amount })
+        .match({ id: id });
+
+    console.log('response', response);
+    checkError(response);
+}
+
+export async function incrementEnemyHealth(id, amount) {
+    const enemy = await getEnemyById(id);
+    const number = Number(amount);
+    const response = await client
+        .from('enemies')
+        .update({ hp: enemy.hp + number })
         .match({ id });
 
     checkError(response);
