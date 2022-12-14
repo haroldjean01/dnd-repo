@@ -147,7 +147,7 @@ export async function uploadImage(imagePath, imageFile) {
 
 export async function deleteEnemy(id) {
     const response = await client.from('enemies').delete().match({ id }).single();
-    console.log('response', response);
+    // console.log('response', response);
 
     return checkError(response);
 }

@@ -4,6 +4,7 @@ import { fetchAndDisplayEnemies, fetchAndDisplayPlayers } from './battle/battle.
 import {
     decrementEnemyHealth,
     decrementPlayerHealth,
+    deleteEnemy,
     incrementEnemyHealth,
     incrementPlayerHealth,
 } from './fetch-utils.js';
@@ -41,7 +42,7 @@ export function renderEnemies(data) {
     const value = document.createElement('input');
     value.type = 'number';
     const decreaseBtn = document.createElement('button');
-    const removeButton = document.createElement('button');
+    const removeBtn = document.createElement('button');
 
     // populate
     imgDiv.style.backgroundImage = `url('${data.image}')`;
@@ -52,6 +53,7 @@ export function renderEnemies(data) {
 
     increaseBtn.textContent = '+';
     decreaseBtn.textContent = '-';
+    removeBtn.textContent = 'Remove Enemy';
 
     decreaseBtn.addEventListener('click', async () => {
         await decrementEnemyHealth(data.id, value.value);
@@ -63,7 +65,11 @@ export function renderEnemies(data) {
         await fetchAndDisplayEnemies();
     });
 
-    removeButton.addEventListener('click', async () => {});
+    removeBtn.addEventListener('click', async () => {
+        await deleteEnemy(data.id);
+        console.log('data.id', data.id);
+        await fetchAndDisplayEnemies();
+    });
 
     // style
     enemyDiv.classList.add('enemy');
@@ -78,7 +84,7 @@ export function renderEnemies(data) {
     // consolidate
     ul.append(hp, ac, init);
     healthDiv.append(increaseBtn, value, decreaseBtn);
-    enemyDiv.append(imgDiv, name, ul, healthDiv);
+    enemyDiv.append(imgDiv, name, ul, removeBtn, healthDiv);
 
     return enemyDiv;
 }
