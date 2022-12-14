@@ -68,6 +68,11 @@ hideToggleButton.addEventListener('click', () => {
     formLabelint.classList.toggle('hidden');
     formLabelwis.classList.toggle('hidden');
     formLabelcha.classList.toggle('hidden');
+    if (hideToggleButton.textContent === 'Show Additional Stats') {
+        hideToggleButton.textContent = 'Hide Additional Stats';
+    } else {
+        hideToggleButton.textContent = 'Show Additional Stats';
+    }
 });
 
 addEnemyButton.addEventListener('click', async (e) => {
