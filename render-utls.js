@@ -5,6 +5,7 @@ import {
     decrementEnemyHealth,
     decrementPlayerHealth,
     deleteEnemy,
+    deletePlayer,
     incrementEnemyHealth,
     incrementPlayerHealth,
 } from './fetch-utils.js';
@@ -101,6 +102,7 @@ export function renderPlayers(data) {
 
     const healthDiv = document.createElement('div');
     const increaseBtn = document.createElement('button');
+    const removeBtn = document.createElement('button');
     const value = document.createElement('input');
     value.type = 'number';
     const decreaseBtn = document.createElement('button');
@@ -114,6 +116,12 @@ export function renderPlayers(data) {
 
     increaseBtn.textContent = '+';
     decreaseBtn.textContent = '-';
+    removeBtn.textContent = 'Remove Player';
+
+    removeBtn.addEventListener('click', async () => {
+        await deletePlayer(data.id);
+        await fetchAndDisplayPlayers();
+    });
 
     decreaseBtn.addEventListener('click', async () => {
         await decrementPlayerHealth(data.id, value.value);
@@ -138,7 +146,7 @@ export function renderPlayers(data) {
     // consolidate
     ul.append(hp, ac, init);
     healthDiv.append(increaseBtn, value, decreaseBtn);
-    playerDiv.append(imgDiv, name, ul, healthDiv);
+    playerDiv.append(imgDiv, name, ul, healthDiv, removeBtn);
 
     return playerDiv;
 }

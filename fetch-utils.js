@@ -152,6 +152,13 @@ export async function deleteEnemy(id) {
     return checkError(response);
 }
 
+export async function deletePlayer(id) {
+    const response = await client.from('players').delete().match({ id }).single();
+    // console.log('response', response);
+
+    return checkError(response);
+}
+
 // console checks
 // console.log('enemies_Presets', getEnemyPresets());
 // console.log('players', getPlayers());
