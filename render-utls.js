@@ -41,6 +41,7 @@ export function renderEnemies(data) {
     const value = document.createElement('input');
     value.type = 'number';
     const decreaseBtn = document.createElement('button');
+    const removeButton = document.createElement('button');
 
     // populate
     imgDiv.style.backgroundImage = `url('${data.image}')`;
@@ -61,6 +62,8 @@ export function renderEnemies(data) {
         await incrementEnemyHealth(data.id, value.value);
         await fetchAndDisplayEnemies();
     });
+
+    removeButton.addEventListener('click', async () => {});
 
     // style
     enemyDiv.classList.add('enemy');

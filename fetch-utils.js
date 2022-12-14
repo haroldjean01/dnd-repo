@@ -145,6 +145,13 @@ export async function uploadImage(imagePath, imageFile) {
     return url;
 }
 
+export async function deleteEnemy(id) {
+    const response = await client.from('enemies').delete().match({ id }).single();
+    console.log('response', response);
+
+    return checkError(response);
+}
+
 // console checks
 // console.log('enemies_Presets', getEnemyPresets());
 // console.log('players', getPlayers());
