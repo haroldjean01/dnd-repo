@@ -40,7 +40,7 @@ export async function getEnemyPresets() {
 }
 
 export async function getEnemies() {
-    const response = await client.from('enemies').select();
+    const response = await client.from('enemies').select().order('init', { ascending: false });
 
     return checkError(response);
 }
@@ -52,7 +52,7 @@ export async function getPlayerPresets() {
 }
 
 export async function getPlayers() {
-    const response = await client.from('players').select();
+    const response = await client.from('players').select().order('init', { ascending: false });
 
     return checkError(response);
 }
