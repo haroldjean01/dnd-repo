@@ -1,5 +1,7 @@
 // renders
 
+import { decrementPlayerHealth } from './fetch-utils.js';
+
 export function renderPresets(data) {
     // create
     const ul = document.createElement('ul');
@@ -87,6 +89,10 @@ export function renderPlayers(data) {
 
     increaseBtn.textContent = '+';
     decreaseBtn.textContent = '-';
+
+    decreaseBtn.addEventListener('click', async () => {
+        await decrementPlayerHealth(data.id, value.value);
+    });
 
     // style
     playerDiv.classList.add('enemy');

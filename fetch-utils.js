@@ -68,12 +68,29 @@ export async function createPlayer(player) {
 }
 
 export async function createPlayerPreset(player) {
-    const response = await client
-        .from('player_presets')
-        .insert(player)
-        .single();
-    
+    const response = await client.from('player_presets').insert(player).single();
+
     return checkError(response);
+}
+
+export async function getPlayerById(id) {
+    const response = await client.from('players').select().match({ id }).single();
+
+    return checkError(response);
+}
+
+export async function getEnemyById(id) {
+    const response = await client.from('enemies').select().match({ id }).single();
+
+    return checkError(response);
+}
+
+export async function decrementPlayerHealth(id, amount) {
+    const player = await getPlayerById(id);
+
+    const response = await client.from('players').update({ hp: player.hp - amount });
+
+    checkError(response);
 }
 
 export async function uploadImage(imagePath, imageFile) {

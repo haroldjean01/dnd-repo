@@ -9,6 +9,7 @@ import {
     getEnemies,
     createPlayer,
     getPlayerPresets,
+    getPlayersById,
 } from '../fetch-utils.js';
 import { renderEnemies, renderPlayers, renderPresets } from '../render-utls.js';
 
@@ -88,6 +89,7 @@ addPlayerButton.addEventListener('click', async (e) => {
 });
 
 self.addEventListener('load', async () => {
+    await getPlayersById();
     fetchAndDisplayEnemies();
     fetchAndDisplayPlayers();
 });
@@ -165,51 +167,3 @@ async function displayPresets(presets) {
 }
 
 // debug logs
-
-// debugButton.addEventListener('click', () => {
-    
-//     let image;
-//     toDataUrl('https://fgfwcgpgwqwvqbgpdmlr.supabase.co/storage/v1/object/public/avatars/9e07abdf-0994-4839-8261-1c262c0777f7/adult_red_dragon.jpeg', function(x){
-//         image = x;
-//     });
-    
-//     const dT = new ClipboardEvent('').clipboardData || // Firefox < 62 workaround exploiting https://bugzilla.mozilla.org/show_bug.cgi?id=1422655
-//     new DataTransfer(); // specs compliant (as of March 2018 only Chrome)
-//     dT.items.add(new File([image], 'Dragon'));
-//     document.querySelector('#myImageInput').files = dT.files;
-    
-//     console.log('myImageInput.files', myImageInput.files);
-
-
-// });
-
-
-// // Image Handling lol
-
-// function toDataUrl(url, callback) {
-//     var xhr = new XMLHttpRequest();
-//     xhr.onload = function() {
-//         callback(xhr.response);
-//     };
-//     xhr.open('GET', url);
-//     xhr.responseType = 'blob';
-//     xhr.send();
-// }
-
-// function previewFile() {
-//     var preview = document.querySelector('#image-preview');
-//     var file = document.querySelector('#myImageInput').files[0];
-//     var reader = new FileReader();
-
-//     reader.onloadend = function() {
-//         preview.src = reader.result;
-//         console.log(reader.result);
-//     };
-
-//     if (file) {
-//         reader.readAsDataURL(file);
-//     } else {
-//         preview.src = '';
-//     }
-// }
-// previewFile();
