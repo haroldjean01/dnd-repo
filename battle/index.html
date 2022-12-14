@@ -71,25 +71,48 @@
                         <img id="image-preview" class="avatar" src="/assets/5e.png" />
                         <form id="create-form">
                             <label>Image: <input name="image" type="file" /></label>
-                            <input class="hidden" id="preset-image" name="image2" type="text"/>
+                            <input class="hidden" id="preset-image" name="image2" type="text" />
                             <label>Name: <input name="name" id="name-input" type="text" /></label>
                             <label>AC: <input name="armor" type="text" /></label>
                             <label>Init: <input name="init" type="text" /></label>
                             <label>HP: <input name="hp" type="number" /></label>
-                            <label class="hidden" id="str-label">STR: <input class="hidden" name="str" type="number" /></label>
-                            <label class="hidden" id="dex-label">DEX: <input class="hidden" name="dex" type="number" /></label>
-                            <label class="hidden" id="con-label">CON: <input class="hidden" name="con" type="number" /></label>
-                            <label class="hidden" id="int-label">INT: <input class="hidden" name="int" type="number" /></label>
-                            <label class="hidden" id="wis-label">WIS: <input class="hidden" name="wis" type="number" /></label>
-                            <label class="hidden" id="cha-label">CHA: <input class="hidden" name="cha" type="number" /></label>
+                            <label class="hidden" id="str-label"
+                                >STR: <input class="hidden" name="str" type="number"
+                            /></label>
+                            <label class="hidden" id="dex-label"
+                                >DEX: <input class="hidden" name="dex" type="number"
+                            /></label>
+                            <label class="hidden" id="con-label"
+                                >CON: <input class="hidden" name="con" type="number"
+                            /></label>
+                            <label class="hidden" id="int-label"
+                                >INT: <input class="hidden" name="int" type="number"
+                            /></label>
+                            <label class="hidden" id="wis-label"
+                                >WIS: <input class="hidden" name="wis" type="number"
+                            /></label>
+                            <label class="hidden" id="cha-label"
+                                >CHA: <input class="hidden" name="cha" type="number"
+                            /></label>
                             <div id="create-buttons">
                                 <button type="submit" id="add-player">Add Player</button>
                                 <button type="submit" id="clear-form">Clear Form</button>
                                 <button type="submit" id="add-enemy">Add Enemy</button>
                             </div>
                         </form>
-                        <button id="hide-toggle"> Show more stats </button>
+                        <button id="hide-toggle">Show more stats</button>
                     </div>
+                    <select id="dice-type">
+                        <option value="d4">D4</option>
+                        <option value="d6">D6</option>
+                        <option value="d8">D8</option>
+                        <option value="d10">D10</option>
+                        <option value="d12">D12</option>
+                        <option value="d20">D20</option>
+                        <option value="d100">D100</option>
+                    </select>
+                    <button id="dice-roll">d4</button>
+                    <h3 id="dice-result"></h3>
                 </div>
                 <div id="enemies-div">
                     <div class="enemy">

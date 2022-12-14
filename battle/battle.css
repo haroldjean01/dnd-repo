@@ -67,6 +67,11 @@
     margin: 10px;
 }
 
+#center-section {
+    /* display: flex; */
+    justify-content: column;
+}
+
 #create-buttons {
     display: flex;
     flex-direction: row;

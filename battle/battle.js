@@ -27,6 +27,9 @@ const formClear = document.getElementById('clear-form');
 const imagePreview = document.getElementById('image-preview');
 const debugButton = document.getElementById('debug');
 const hideToggleButton = document.getElementById('hide-toggle');
+const diceSelect = document.getElementById('dice-type');
+const diceRollButton = document.getElementById('dice-roll');
+const diceResult = document.getElementById('dice-result');
 
 // form Elements
 const imageInput = document.querySelector('[name=image]');
@@ -48,8 +51,6 @@ const formLabelcon = document.getElementById('con-label');
 const formLabelint = document.getElementById('int-label');
 const formLabelwis = document.getElementById('wis-label');
 const formLabelcha = document.getElementById('cha-label');
-
-
 
 // States
 
@@ -89,13 +90,9 @@ addEnemyButton.addEventListener('click', async (e) => {
 
         enemyObject.image = url;
     } else if (formImagePreset.value === '') {
-        
         enemyObject.image = '/assets/5e.png';
-        
     } else {
-
         enemyObject.image = formImagePreset.value;
-        
     }
 
     imagePreview.src = '/assets/5e.png';
@@ -120,7 +117,7 @@ addPlayerButton.addEventListener('click', async (e) => {
         CON: data.get('con'),
         INT: data.get('int'),
         WIS: data.get('wis'),
-        CHA: data.get('cha')
+        CHA: data.get('cha'),
     };
     const imageFile = data.get('image');
     if (imageFile && imageFile.size) {
@@ -130,13 +127,9 @@ addPlayerButton.addEventListener('click', async (e) => {
 
         playerObject.image = url;
     } else if (formImagePreset.value === '') {
-        
         playerObject.image = '/assets/5e.png';
-        
     } else {
-
         playerObject.image = formImagePreset.value;
-        
     }
 
     imagePreview.src = '/assets/5e.png';
@@ -182,6 +175,13 @@ imageInput.addEventListener('change', () => {
         imagePreview.src = URL.createObjectURL(file);
     } else {
         imagePreview.src = '/assets/5e.png';
+    }
+});
+
+diceSelect.addEventListener('change', () => {
+    diceRollButton.textContent = diceSelect.value;
+    if (diceSelect.value === 'd4') {
+    } else if (diceSelect.value === 'd6') {
     }
 });
 
