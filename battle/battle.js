@@ -179,10 +179,11 @@ imageInput.addEventListener('change', () => {
 });
 
 diceSelect.addEventListener('change', () => {
-    diceRollButton.textContent = diceSelect.value;
-    if (diceSelect.value === 'd4') {
-    } else if (diceSelect.value === 'd6') {
-    }
+    diceRollButton.textContent = `D${diceSelect.value}`;
+});
+
+diceRollButton.addEventListener('click', () => {
+    diceResult.textContent = 'You rolled: ' + Math.floor(Math.random() * diceSelect.value + 1);
 });
 
 // Display
