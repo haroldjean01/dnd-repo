@@ -1,9 +1,10 @@
 // Import
-import { createPlayer } from '../fetch-utils.js';
+import { createPlayerPreset } from '../fetch-utils.js';
 
 
 // DOM
-
+const form = document.getElementById('create-form');
+const avatarPreview = document.getElementById('image-preview');
 
 
 // State
@@ -11,7 +12,9 @@ import { createPlayer } from '../fetch-utils.js';
 
 
 // Events
-
+form.addEventListener('submit', async () => {
+    
+});
 
 
 // Display

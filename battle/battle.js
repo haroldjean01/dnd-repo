@@ -26,14 +26,14 @@ const playersDivEl = document.getElementById('players-div');
 const formClear = document.getElementById('clear-form');
 const imagePreview = document.getElementById('image-preview');
 const debugButton = document.getElementById('debug');
-const myImageInput = document.getElementById('myImageInput');
 
 // form Elements
 const imageInput = document.querySelector('[name=image]');
-const name = document.querySelector('[name=name]');
-const ac = document.querySelector('[name=armor]');
-const init = document.querySelector('[name=init]');
-const hp = document.querySelector('[name=hp]');
+const formName = document.querySelector('[name=name]');
+const formAc = document.querySelector('[name=armor]');
+const formInit = document.querySelector('[name=init]');
+const formHp = document.querySelector('[name=hp]');
+const formImagePreset = document.getElementById('preset-image');
 
 // States
 
@@ -49,14 +49,25 @@ addEnemyButton.addEventListener('click', async (e) => {
         hp: data.get('hp'),
         init: data.get('init'),
     };
+
     const imageFile = data.get('image');
-    if (imageFile.size) {
+    if (imageFile && imageFile.size) {
         const imagePath = `${user.id}/${imageFile.name}`;
 
         const url = await uploadImage(imagePath, imageFile);
 
         enemyObject.image = url;
+    } else if (formImagePreset.value === '') {
+        
+        enemyObject.image = '/assets/5e.png';
+        
+    } else {
+
+        enemyObject.image = formImagePreset.value;
+        
     }
+
+    imagePreview.src = '/assets/5e.png';
 
     await createEnemy(enemyObject);
     fetchAndDisplayEnemies();
@@ -75,13 +86,23 @@ addPlayerButton.addEventListener('click', async (e) => {
         init: data.get('init'),
     };
     const imageFile = data.get('image');
-    if (imageFile.size) {
+    if (imageFile && imageFile.size) {
         const imagePath = `${user.id}/${imageFile.name}`;
 
         const url = await uploadImage(imagePath, imageFile);
 
         playerObject.image = url;
+    } else if (formImagePreset.value === '') {
+        
+        playerObject.image = '/assets/5e.png';
+        
+    } else {
+
+        playerObject.image = formImagePreset.value;
+        
     }
+
+    imagePreview.src = '/assets/5e.png';
 
     await createPlayer(playerObject);
     fetchAndDisplayPlayers();
@@ -123,7 +144,7 @@ imageInput.addEventListener('change', () => {
     if (file) {
         imagePreview.src = URL.createObjectURL(file);
     } else {
-        imagePreview.src = '/assets/default-player.jpg';
+        imagePreview.src = '/assets/5e.png';
     }
 });
 
@@ -156,10 +177,12 @@ async function displayPresets(presets) {
         presetLi.classList.add('preset');
         // const target = renderPresets(data);
         presetLi.addEventListener('click', async () => {
-            name.value = data.name;
-            ac.value = data.ac;
-            init.value = data.init;
-            hp.value = data.hp;
+            formImagePreset.value = data.image;
+            imagePreview.src = formImagePreset.value;
+            formName.value = data.name;
+            formAc.value = data.ac;
+            formInit.value = data.init;
+            formHp.value = data.hp;
         });
         presetList.append(presetLi);
     }
