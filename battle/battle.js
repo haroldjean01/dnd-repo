@@ -26,6 +26,7 @@ const playersDivEl = document.getElementById('players-div');
 const formClear = document.getElementById('clear-form');
 const imagePreview = document.getElementById('image-preview');
 const debugButton = document.getElementById('debug');
+const hideToggleButton = document.getElementById('hide-toggle');
 
 // form Elements
 const imageInput = document.querySelector('[name=image]');
@@ -41,9 +42,33 @@ const formINT = document.querySelector('[name=int]');
 const formWIS = document.querySelector('[name=wis]');
 const formCHA = document.querySelector('[name=cha]');
 
+const formLabelstr = document.getElementById('str-label');
+const formLabeldex = document.getElementById('dex-label');
+const formLabelcon = document.getElementById('con-label');
+const formLabelint = document.getElementById('int-label');
+const formLabelwis = document.getElementById('wis-label');
+const formLabelcha = document.getElementById('cha-label');
+
+
+
 // States
 
 // Events
+hideToggleButton.addEventListener('click', () => {
+    formSTR.classList.toggle('hidden');
+    formDEX.classList.toggle('hidden');
+    formCON.classList.toggle('hidden');
+    formINT.classList.toggle('hidden');
+    formWIS.classList.toggle('hidden');
+    formCHA.classList.toggle('hidden');
+    formLabelstr.classList.toggle('hidden');
+    formLabeldex.classList.toggle('hidden');
+    formLabelcon.classList.toggle('hidden');
+    formLabelint.classList.toggle('hidden');
+    formLabelwis.classList.toggle('hidden');
+    formLabelcha.classList.toggle('hidden');
+});
+
 addEnemyButton.addEventListener('click', async (e) => {
     e.preventDefault();
 
