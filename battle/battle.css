@@ -118,3 +118,7 @@
     text-decoration: dotted;
     cursor: pointer;
 }
+
+#dice-result {
+    text-align: center;
+}
