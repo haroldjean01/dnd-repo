@@ -42,23 +42,13 @@
 
         <main>
             <section class="battle-page">
-                <div id="players-div">
-                    <!-- <div class="player">
-                        <div class="player-img"></div>
-                        <h3 class="player-name">Default Bro</h3>
-                        <ul class="stats">
-                            <li>HP: 23</li>
-                            <li>AC: 12</li>
-                            <li>INIT: 2</li>
-                        </ul>
-                        <div class="player-health">
-                            <button id="increase-player">Increase</button>
-                            <input id="player-input" type="text" />
-                            <button id="decrease-player">Decrease</button>
-                        </div>
-                    </div> -->
-                </div>
+                <section id="player-section">
+                    <h2>Player Party</h2>
+                    <div id="players-div"></div>
+                </section>
                 <div id="create-div">
+                    <h2>Load in Presets</h2>
+                    <p>*click on preset text to load into form*</p>
                     <div id="preset-selector">
                         <button id="player-option" type="submit">Players</button>
                         <div class="preset-list">
@@ -68,6 +58,7 @@
                         <button id="enemy-option">Enemies</button>
                     </div>
                     <div id="create-form-div">
+                        <h3>Create Form</h3>
                         <img id="image-preview" class="avatar" src="/assets/5e.png" />
                         <form id="create-form">
                             <label>Image: <input name="image" type="file" /></label>
@@ -102,6 +93,7 @@
                         </form>
                         <button id="hide-toggle">Show more stats</button>
                     </div>
+                    <h3>Dice Roll</h3>
                     <select id="dice-type">
                         <option value="4">D4</option>
                         <option value="6">D6</option>
@@ -114,22 +106,10 @@
                     <button id="dice-roll">d4</button>
                     <h3 id="dice-result"></h3>
                 </div>
-                <div id="enemies-div">
-                    <div class="enemy">
-                        <div class="enemy-img"></div>
-                        <h3 class="enemy-name">Stinky Goblin</h3>
-                        <ul class="stats">
-                            <li>HP: 13</li>
-                            <li>AC: 7</li>
-                            <li>INIT: 20</li>
-                        </ul>
-                        <div class="enemy-health">
-                            <button id="increase-enemy">Increase</button>
-                            <input id="enemy-input" type="text" />
-                            <button id="decrease-enemy">Decrease</button>
-                        </div>
-                    </div>
-                </div>
+                <section id="enemy-section">
+                    <h2>Enemy Party</h2>
+                    <div id="enemies-div"></div>
+                </section>
             </section>
             <button id="debug">Debug Button</button>
         </main>

@@ -3,6 +3,28 @@
     justify-content: space-between;
 }
 
+#player-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#enemy-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#player-section h2 {
+    display: flex;
+    justify-content: center;
+}
+
+#enemy-section h2 {
+    display: flex;
+    justify-content: center;
+}
+
 #players-div {
     background-color: black;
     border-radius: 10px;
@@ -36,6 +58,12 @@
     margin: 20px;
     gap: 30px;
     border: dotted black 1px;
+}
+
+#create-div h2,
+p {
+    display: flex;
+    justify-content: center;
 }
 
 #preset-selector {
@@ -108,9 +136,10 @@
     width: 150px;
     height: 150px;
     line-height: 3em;
-    overflow: scroll;
-    border: thin #000 solid;
+    overflow: scroll 30px;
+    border: thin rgb(255, 255, 255) solid;
     padding: 5px;
+    overflow-x: hidden;
 }
 
 .preset {
