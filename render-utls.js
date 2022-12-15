@@ -12,24 +12,10 @@ import {
     incrementPlayerHealth,
 } from './fetch-utils.js';
 
-export function renderPresets(data) {
-    // create
-    const ul = document.createElement('ul');
-    const li = document.createElement('li');
-
-    // populate
-    li.textContent = data.name;
-
-    // style
-    ul.classList.add('preset-ul');
-    li.classList.add('preset');
-
-    //consolidate
-    ul.append(li);
-
-    return ul;
-}
-
+/*
+The code below renders enemy objects to the enemy
+section on the battle page
+*/
 export function renderEnemies(data) {
     // create
     const enemyDiv = document.createElement('div');
@@ -53,11 +39,12 @@ export function renderEnemies(data) {
     const decreaseBtn = document.createElement('button');
     const removeBtn = document.createElement('button');
 
+    //state for maxHP
     let maxHP = [];
-
     maxHP.push(data.hp);
     const displayMaxHP = maxHP[0];
-    // populate
+
+    //populate
     imgDiv.style.backgroundImage = `url('${data.image}')`;
     name.textContent = data.name;
     hpContainer.textContent = 'HP';
@@ -71,11 +58,13 @@ export function renderEnemies(data) {
     decreaseBtn.textContent = '-';
     removeBtn.textContent = 'Remove Enemy';
 
+    //removes enemy object
     removeBtn.addEventListener('click', async () => {
         await deleteEnemy(data.id);
         await fetchAndDisplayEnemies();
     });
 
+    //event listener decreases enemy object health
     decreaseBtn.addEventListener('click', async () => {
         enemyDiv.classList.toggle('damage-animation');
         await decrementEnemyHealth(data.id, value.value);
@@ -85,6 +74,7 @@ export function renderEnemies(data) {
         enemyDiv.classList.toggle('damage-animation');
     });
 
+    //event listener increases enemy object health
     increaseBtn.addEventListener('click', async () => {
         enemyDiv.classList.toggle('heal-animation');
         await incrementEnemyHealth(data.id, value.value);
@@ -94,7 +84,7 @@ export function renderEnemies(data) {
         enemyDiv.classList.toggle('heal-animation');
     });
 
-    // style
+    //style
     enemyDiv.classList.add('enemy');
     imgDiv.classList.add('player-img');
     name.classList.add('enemy-name');
@@ -105,7 +95,7 @@ export function renderEnemies(data) {
     decreaseBtn.classList.add('decrease');
     removeBtn.classList.add('enemy-remove-button');
 
-    // consolidate
+    //consolidate
     ul.append(hpContainer, HP, maxHPEl, ac, init);
     healthDiv.append(increaseBtn, value, decreaseBtn);
     enemyDiv.append(removeBtn, healthDiv, ul, name, imgDiv);
@@ -113,6 +103,10 @@ export function renderEnemies(data) {
     return enemyDiv;
 }
 
+/*
+The code below renders player objects to the player
+section of the battle page
+*/
 export function renderPlayers(data) {
     // create
     const playerDiv = document.createElement('div');
@@ -136,8 +130,8 @@ export function renderPlayers(data) {
     value.placeholder = 'HP Amount';
     const decreaseBtn = document.createElement('button');
 
+    //state for maxHP
     let maxHP = [];
-
     maxHP.push(data.hp);
     const displayMaxHP = maxHP[0];
 
@@ -154,11 +148,13 @@ export function renderPlayers(data) {
     decreaseBtn.textContent = '-';
     removeBtn.textContent = 'Remove Player';
 
+    //event listener removes player object
     removeBtn.addEventListener('click', async () => {
         await deletePlayer(data.id);
         await fetchAndDisplayPlayers();
     });
 
+    //event listener decreases player object health
     decreaseBtn.addEventListener('click', async () => {
         playerDiv.classList.toggle('damage-animation');
         await decrementPlayerHealth(data.id, value.value);
@@ -168,6 +164,7 @@ export function renderPlayers(data) {
         playerDiv.classList.toggle('damage-animation');
     });
 
+    //event listener increases player object health
     increaseBtn.addEventListener('click', async () => {
         playerDiv.classList.toggle('heal-animation');
         await incrementPlayerHealth(data.id, value.value);

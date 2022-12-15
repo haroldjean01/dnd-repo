@@ -11,7 +11,7 @@ import {
     getPlayerPresets,
     getPlayerById,
 } from '../fetch-utils.js';
-import { renderEnemies, renderPlayers, renderPresets } from '../render-utls.js';
+import { renderEnemies, renderPlayers } from '../render-utls.js';
 
 // DOM
 const presetEl = document.querySelector('.preset-list');
@@ -228,7 +228,7 @@ async function displayPresets(presets) {
         const presetLi = document.createElement('li');
         presetLi.textContent = data.name;
         presetLi.classList.add('preset');
-        // const target = renderPresets(data);
+
         presetLi.addEventListener('click', async () => {
             formImagePreset.value = data.image;
             imagePreview.src = formImagePreset.value;
