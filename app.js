@@ -5,6 +5,7 @@ import './auth/user.js';
 /* Get DOM Elements */
 const playerBtn = document.getElementById('player-button');
 const dmBtn = document.getElementById('dm-button');
+const abtBtn = document.getElementById('about-btn');
 
 /* State */
 
@@ -15,5 +16,9 @@ playerBtn.addEventListener('click', () => {
 
 dmBtn.addEventListener('click', () => {
     window.location.replace('/battle');
+});
+
+abtBtn.addEventListener('click', () => {
+    window.location.replace('/aboutUs');
 });
 /* Display Functions */

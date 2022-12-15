@@ -52,3 +52,13 @@ button {
     width: 100px;
     height: 50px;
 }
+
+.label-about {
+    padding: 50px;
+    background-color: black;
+    border-radius: 50px;
+    font-size: xx-large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

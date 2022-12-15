@@ -15,8 +15,8 @@ body {
     height: 100vh;
     font-family: var(--primary-font);
     color: var(--text-color);
-    background-image: url('/assets/background-01.jpg');
-    background-size: 100px 100px;
+    background-image: url('/assets/dnd-redo-01.jpg');
+    background-size: cover;
     display: grid;
     grid-template-rows: auto 1fr;
 }

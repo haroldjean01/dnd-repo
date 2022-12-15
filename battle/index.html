@@ -64,8 +64,8 @@
                             <label>Image: <input name="image" type="file" /></label>
                             <input class="hidden" id="preset-image" name="image2" type="text" />
                             <label>Name: <input name="name" id="name-input" type="text" /></label>
-                            <label>AC: <input name="armor" type="text" /></label>
-                            <label>Init: <input name="init" type="text" /></label>
+                            <label>AC: <input name="armor" type="number" /></label>
+                            <label>Init: <input name="init" type="number" /></label>
                             <label>HP: <input name="hp" type="number" /></label>
                             <label class="hidden" id="str-label"
                                 >STR: <input class="hidden" name="str" type="number"
@@ -113,7 +113,7 @@
                     <div id="enemies-div"></div>
                 </section>
             </section>
-            <button id="debug">Debug Button</button>
+            <button id="debug" class="hidden">Debug Button</button>
         </main>
     </body>
 </html>
