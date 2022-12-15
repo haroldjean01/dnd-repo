@@ -1,3 +1,7 @@
+.battle {
+    background-image: url(/assets/stone-background.jpg);
+}
+
 .battle-page {
     display: flex;
     justify-content: space-between;
@@ -26,18 +30,49 @@
 }
 
 #players-div {
-    background-color: black;
+    background: linear-gradient();
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    border: dotted black 1px;
+    /* border: solid rgb(255, 255, 255) 3px; */
     gap: 35px;
+    height: 800px;
+    width: 650px;
+    padding: 30px;
+    position: static;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#players-div::-webkit-scrollbar {
+    width: 20px;
+}
+
+#players-div::-webkit-scrollbar-track {
+    background-color: rgba(95, 158, 160, 0.212);
+    border-radius: 10px;
 }
 
 #enemies-div {
-    background-color: black;
     border-radius: 10px;
-    border: dotted black 1px;
+    display: flex;
+    flex-direction: column;
+    /* border: solid rgb(255, 255, 255) 3px; */
+    gap: 35px;
+    height: 800px;
+    width: 650px;
+    padding: 30px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#enemies-div::-webkit-scrollbar {
+    width: 20px;
+}
+
+#enemies-div::-webkit-scrollbar-track {
+    background-color: rgba(95, 158, 160, 0.212);
+    border-radius: 10px;
 }
 
 .player-health {
@@ -51,13 +86,13 @@
 }
 
 #create-div {
-    background-color: black;
+    background-color: rgba(53, 53, 53, 0.781);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     margin: 20px;
     gap: 30px;
-    border: dotted black 1px;
+    border: solid rgb(255, 255, 255) 3px;
 }
 
 #create-div h2,
@@ -69,18 +104,10 @@ p {
 #preset-selector {
     display: flex;
     justify-content: center;
-    border: dotted black 1px;
 }
 
 #preset-selector button {
     height: fit-content;
-}
-
-#create-div {
-    background-color: black;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
 }
 
 #create-form {
@@ -107,10 +134,11 @@ p {
 }
 
 .player-img {
+    border-radius: 100%;
     border: solid black 1px;
     height: 150px;
-    width: 150px;
-    background-image: url(../assets/default-player.jpg);
+    width: 270px;
+    background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -120,16 +148,81 @@ p {
     border: solid black 1px;
     height: 150px;
     width: 150px;
-    background-image: url(../assets/goblin.jpg);
     background-repeat: no-repeat;
+    background-color: white;
     background-size: cover;
 }
+
+.enemy-name {
+    color: rgb(88, 35, 35);
+    background-color: rgba(82, 80, 80, 0.623);
+    height: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.player-name {
+    color: white;
+    background-color: rgba(82, 80, 80, 0.623);
+    height: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.remove-button {
+    height: fit-content;
+    width: 180px;
+    background-color: rgb(88, 35, 35);
+    color: white;
+}
+
+.stats {
+    background-color: rgba(255, 228, 196, 0.151);
+    color: white;
+    width: 140px;
+    height: fit-content;
+}
+
 .player {
     display: flex;
+    padding: 10px;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .enemy {
     display: flex;
+    padding: 10px;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.health {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.increase {
+    background-color: green;
+}
+
+.decrease {
+    background-color: red;
+}
+
+.health button {
+    display: flex;
+    justify-content: center;
+    width: 70px;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 .preset-list {
@@ -142,6 +235,13 @@ p {
     overflow-x: hidden;
 }
 
+.health-input {
+    width: 100px;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0);
+    color: white;
+}
+
 .preset {
     font-size: 10px;
     text-decoration: dotted;
@@ -150,4 +250,15 @@ p {
 
 #dice-result {
     text-align: center;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+    opacity: 1;
+}
+
+input::-webkit-input-placeholder {
+    color: whitesmoke;
+}
+input:-moz-placeholder {
+    color: whitesmoke;
 }

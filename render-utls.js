@@ -42,6 +42,7 @@ export function renderEnemies(data) {
     const increaseBtn = document.createElement('button');
     const value = document.createElement('input');
     value.type = 'number';
+    value.placeholder = 'HP Amount';
     const decreaseBtn = document.createElement('button');
     const removeBtn = document.createElement('button');
 
@@ -77,15 +78,16 @@ export function renderEnemies(data) {
     imgDiv.classList.add('enemy-img');
     name.classList.add('enemy-name');
     ul.classList.add('stats');
-    healthDiv.classList.add('enemy-health');
-    increaseBtn.classList.add('increase-enemy');
-    value.classList.add('enemy-input');
-    decreaseBtn.classList.add('decrease-enemy');
+    healthDiv.classList.add('health');
+    increaseBtn.classList.add('increase');
+    value.classList.add('health-input');
+    decreaseBtn.classList.add('decrease');
+    removeBtn.classList.add('remove-button');
 
     // consolidate
     ul.append(hp, ac, init);
     healthDiv.append(increaseBtn, value, decreaseBtn);
-    enemyDiv.append(imgDiv, name, ul, removeBtn, healthDiv);
+    enemyDiv.append(removeBtn, healthDiv, ul, name, imgDiv);
 
     return enemyDiv;
 }
@@ -105,6 +107,7 @@ export function renderPlayers(data) {
     const removeBtn = document.createElement('button');
     const value = document.createElement('input');
     value.type = 'number';
+    value.placeholder = 'HP Amount';
     const decreaseBtn = document.createElement('button');
 
     // populate
@@ -134,14 +137,15 @@ export function renderPlayers(data) {
     });
 
     // style
-    playerDiv.classList.add('enemy');
-    imgDiv.classList.add('enemy-img');
-    name.classList.add('enemy-name');
+    playerDiv.classList.add('player');
+    imgDiv.classList.add('player-img');
+    name.classList.add('player-name');
     ul.classList.add('stats');
-    healthDiv.classList.add('enemy-health');
-    increaseBtn.classList.add('increase-enemy');
-    value.classList.add('enemy-input');
-    decreaseBtn.classList.add('decrease-enemy');
+    healthDiv.classList.add('health');
+    increaseBtn.classList.add('increase');
+    value.classList.add('health-input');
+    decreaseBtn.classList.add('decrease');
+    removeBtn.classList.add('remove-button');
 
     // consolidate
     ul.append(hp, ac, init);
