@@ -1,0 +1,84 @@
+main {
+    color: whitesmoke;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+.form-div {
+    /* max-width: 500px; */
+    background-color: rgba(0, 0, 0, 0.66);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 10px;
+    align-content: center;
+    align-items: center;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgb(90, 90, 90);
+    border-radius: 20px;
+    margin: 250PX;
+    MARGIN-TOP: 0px;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border: 1px solid var(--placeholder-color);
+    border-radius: 100%;
+    justify-content: center;
+    margin: 25px;
+}
+
+.create-form input {
+    width: 100px;
+    margin: 5px;
+    /* display: flex; */
+}
+
+#image-input {
+    margin-bottom: 25px;
+    width: 200px;
+}
+
+#image-input-label {
+    margin: 0px;
+}
+
+label {
+    text-align: center;
+    display: flex;
+    /* margin-left: 50px; */
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    margin: 20px;
+    margin-left: 30px;
+}
+
+#name-input {
+    width: 150px;
+}
+
+input {
+    /* display: flex; */
+}

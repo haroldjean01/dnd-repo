@@ -1,26 +1,30 @@
-## The Golden Rule:
+Read me instructions
 
-🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
+Project name
+D&D Battle Tracker
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
+Team members
+Aaron Ibarra
+Pharah Ibarra
+Diego Montaño
+Harold Jean
 
-## Making a plan
+Description of the project
+Our project was designed by D&D players for D&D players! As the name implies, our app keeps account of all players and enemies statistics for each dungeon and dragon's group. Our app has tons of features like a multi-sided dice roll randomizer and well as recording player's and enemies hp, ac, init and more!
 
-1. **Make a drawing of your app. Simple "wireframes"**
-1. **Once you have a drawing, name the HTML elements you'll need to realize your vision**
-1. **For each HTML element ask: Why do I need this?**
-1. **Once we know _why_ we need each element, think about how to implement the "Why" as a "How"**
-1. **Find all the 'events' (user clicks, form submit, on load etc) in your app. Ask one by one, "What happens when" for each of these events. Does any state change?**
-1. **Think about how to validate each of your features according to a Definition of Done**
-1. **Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.**
+Libraries, frameoworks, packages
+JAVASCRIPT, CSS, HTML, MiroBoard
 
-Additional considerations:
+Source for images and information: (displayed on miro board)
 
--   Ask: which of your HTML elements need to be hard coded, and which need to be dynamically generated?
--   Consider your data model.
-    -   What kinds of objects (i.e., Dogs, Friends, Todos, etc) will you need?
-    -   What are the key/value pairs?
-    -   What arrays might you need?
-    -   What needs to live in a persistence layer?
--   Is there some state we need to initialize?
--   Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be reused?)
+https://en.wikipedia.org/wiki/Dungeons_%26_Dragons
+
+https://store.steampowered.com/news/group/718735/view/5013080742644637673#:~:text=The%20six%20D%26D%20stats%20are,to%20all%20kinds%20of%20rolls.
+
+https://miro.com/welcomeonboard/QmEzRURaRm9iemZHcXJsU1llQVd4UmozMnNBcVcyMDliRTRtWE9KWkoxcjZwaU5LbVVjclZySkFlNVpUdzNTNHwzNDU4NzY0NTM2Nzg1MTQ3NDcxfDI=?share_link_id=95192171695
+
+https://miro.com/app/board/uXjVP7ZgcAI=/?moveToWidget=3458764540908515196&cot=14
+
+https://miro.com/app/board/uXjVP7ZgcAI=/?moveToWidget=3458764541082292607&cot=14
+
+https://miro.com/app/board/uXjVP7ZgcAI=/?moveToWidget=3458764540925433038&cot=14

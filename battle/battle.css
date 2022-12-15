@@ -1,0 +1,409 @@
+.battle {
+    background-image: url(/assets/stone-background.jpg);
+}
+
+.battle-page {
+    display: flex;
+    justify-content: space-between;
+}
+
+#player-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#enemy-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#player-section h2 {
+    display: flex;
+    justify-content: center;
+}
+
+#enemy-section h2 {
+    display: flex;
+    justify-content: center;
+}
+
+#players-div {
+    background: linear-gradient();
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    /* border: solid rgb(255, 255, 255) 3px; */
+    gap: 35px;
+    height: 800px;
+    width: 650px;
+    padding: 30px;
+    position: static;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#players-div::-webkit-scrollbar {
+    width: 20px;
+}
+
+#players-div::-webkit-scrollbar-track {
+    background-color: rgba(95, 158, 160, 0.212);
+    border-radius: 10px;
+}
+
+#enemies-div {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    /* border: solid rgb(255, 255, 255) 3px; */
+    gap: 35px;
+    height: 800px;
+    width: 650px;
+    padding: 30px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#enemies-div::-webkit-scrollbar {
+    width: 20px;
+}
+
+#enemies-div::-webkit-scrollbar-track {
+    background-color: rgba(95, 158, 160, 0.212);
+    border-radius: 10px;
+}
+
+.player-health {
+    display: flex;
+    flex-direction: column;
+}
+
+.enemy-health {
+    display: flex;
+    flex-direction: column;
+}
+
+#create-div {
+    background-color: rgba(53, 53, 53, 0.781);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap: 10px;
+    border: solid rgb(255, 255, 255) 3px;
+    justify-content: center;
+    align-items: center;
+}
+
+#create-div h2,
+p {
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+}
+
+#create-div h3 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#image-preview {
+    margin-left: 15px;
+}
+
+#preset-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#create-buttons {
+    margin-top: 20px;
+}
+
+#add-player {
+    background-color: silver;
+}
+
+#add-enemy {
+    background-color: rgb(77, 77, 77);
+    color: white;
+}
+
+#hide-toggle {
+    border-radius: 15px;
+    margin-right: 60px;
+}
+
+#preset-selector button {
+    height: fit-content;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+#player-option {
+    background-color: silver;
+}
+
+#enemy-option {
+    background-color: rgb(77, 77, 77);
+    color: white;
+}
+
+#create-form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#create-form input {
+    width: 200px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: gray;
+    color: whitesmoke;
+}
+
+#create-buttons button {
+    border-radius: 15px;
+}
+
+#create-form-div {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    gap: 30px;
+    text-align: center;
+    align-items: center;
+}
+
+#center-section {
+    /* display: flex; */
+    justify-content: column;
+}
+
+#create-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#dice-rolling {
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    text-align: center;
+}
+
+#dice-rolling h3 {
+    text-align: center;
+    align-items: center;
+}
+.player-img {
+    border-radius: 100%;
+    border: solid black 1px;
+    height: 150px;
+    width: 270px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.enemy-img {
+    border-radius: 10px;
+    border: solid black 1px;
+    height: 150px;
+    width: 150px;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: cover;
+}
+
+.enemy-name {
+    color: rgb(88, 35, 35);
+    background-color: rgba(82, 80, 80, 0.623);
+    height: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.player-name {
+    color: white;
+    background-color: rgba(82, 80, 80, 0.623);
+    height: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.remove-button {
+    height: fit-content;
+    width: 180px;
+    background-color: rgb(88, 35, 35);
+    color: white;
+}
+
+.enemy-remove-button {
+    height: fit-content;
+    width: 155px;
+    background-color: rgb(88, 35, 35);
+    color: white;
+}
+
+.stats {
+    background-color: rgba(255, 228, 196, 0.151);
+    color: white;
+    width: 140px;
+    height: fit-content;
+    text-align: center;
+}
+
+span {
+    color: red;
+    background-color: black;
+}
+
+.player {
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.enemy {
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.health {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.increase {
+    background-color: green;
+}
+
+.decrease {
+    background-color: red;
+}
+
+.health button {
+    display: flex;
+    justify-content: center;
+    width: 70px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.preset-list {
+    width: 150px;
+    height: 150px;
+    line-height: 2em;
+    overflow: scroll 30px;
+    border: thin rgb(255, 255, 255) solid;
+    overflow-x: hidden;
+    gap: 10px;
+    text-align: center;
+}
+
+.health-input {
+    width: 100px;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0);
+    color: white;
+}
+
+.preset {
+    font-size: 10px;
+    text-decoration: dotted;
+    cursor: pointer;
+}
+
+#dice-result {
+    text-align: center;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+    opacity: 1;
+}
+
+input::-webkit-input-placeholder {
+    color: whitesmoke;
+}
+input:-moz-placeholder {
+    color: whitesmoke;
+}
+
+.damage-animation {
+    animation: shake 0.5s;
+
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+}
+
+.heal-animation {
+    animation: anim-glow 1s;
+
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+@keyframes anim-glow {
+    0% {
+        background-color: #61ef617c;
+    }
+    100% {
+        box-shadow: 0 0 10px 8px transparent;
+        border-width: 2px;
+    }
+}
