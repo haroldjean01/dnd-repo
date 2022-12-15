@@ -356,7 +356,7 @@ input:-moz-placeholder {
 }
 
 .heal-animation {
-    animation: anim-glow 2s;
+    animation: anim-glow 1s;
 
     animation-iteration-count: 1;
     animation-timing-function: ease;
