@@ -90,36 +90,95 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    margin: 20px;
-    gap: 30px;
+    margin: 10px;
+    gap: 10px;
     border: solid rgb(255, 255, 255) 3px;
+    justify-content: center;
 }
 
 #create-div h2,
 p {
     display: flex;
     justify-content: center;
+    margin: 2px;
+}
+
+#create-div h3 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#image-preview {
+    margin-left: 30px;
 }
 
 #preset-selector {
     display: flex;
     justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#create-buttons {
+    margin-top: 20px;
+}
+
+#add-player {
+    background-color: silver;
+}
+
+#add-enemy {
+    background-color: rgb(77, 77, 77);
+    color: white;
+}
+
+#hide-toggle {
+    border-radius: 15px;
 }
 
 #preset-selector button {
     height: fit-content;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+#player-option {
+    background-color: silver;
+}
+
+#enemy-option {
+    background-color: rgb(77, 77, 77);
+    color: white;
 }
 
 #create-form {
     display: flex;
     flex-direction: column;
     margin-left: 15px;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#create-form input {
+    width: 200px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: gray;
+    color: whitesmoke;
+}
+
+#create-buttons button {
+    border-radius: 15px;
+    background-color: ;
 }
 
 #create-form-div {
     display: flex;
     justify-content: center;
     margin: 10px;
+    gap: 30px;
+    text-align: center;
+    align-items: center;
 }
 
 #center-section {
@@ -133,6 +192,17 @@ p {
     gap: 10px;
 }
 
+#dice-rolling {
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    text-align: center;
+}
+
+#dice-rolling h3 {
+    text-align: center;
+    align-items: center;
+}
 .player-img {
     border-radius: 100%;
     border: solid black 1px;
@@ -228,11 +298,12 @@ p {
 .preset-list {
     width: 150px;
     height: 150px;
-    line-height: 3em;
+    line-height: 2em;
     overflow: scroll 30px;
     border: thin rgb(255, 255, 255) solid;
-    padding: 5px;
     overflow-x: hidden;
+    gap: 10px;
+    text-align: center;
 }
 
 .health-input {
