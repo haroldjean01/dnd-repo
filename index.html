@@ -7,8 +7,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
         <!-- title and favicon -->
-        <title>Supabase Web App</title>
-        <link rel="icon" type="image/x-icon" href="/assets/alchemy-favicon.png" />
+        <title>DND Battle | Home</title>
+        <link rel="icon" type="image/x-icon" href="/assets/5e.png" />
 
         <!-- js -->
         <script
@@ -28,12 +28,13 @@
         <!-- css -->
         <link rel="stylesheet" href="/styles/reset.css" />
         <link rel="stylesheet" href="/styles/global.css" />
+        <link rel="stylesheet" href="/home.css" />
         <!-- add link for page specific css -->
     </head>
 
     <body>
         <header class="page-header">
-            <p class="title">DnD Repo</p>
+            <p class="title">Dungeons & Dragons Battle Tracker!</p>
             <nav>
                 <a href="/">Home</a>
                 <a id="sign-out-link" href="auth">Sign Out</a>
@@ -41,13 +42,13 @@
         </header>
 
         <main>
-            <label>
+            <label class="label-player">
                 Player?
-                <button id="player-button" type="submit">Submit</button>
+                <button id="player-button" type="submit">Create!</button>
             </label>
-            <label>
+            <label class="label-dm">
                 Dungeon Master?
-                <button id="dm-button" type="submit">Submit</button>
+                <button id="dm-button" type="submit">Battle!</button>
             </label>
         </main>
     </body>

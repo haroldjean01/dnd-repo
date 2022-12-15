@@ -43,6 +43,8 @@ body {
 }
 
 .page-header .title {
+    text-align: center;
+    color: black;
     font-size: 1.3em;
     font-weight: 800;
     flex-grow: 2;
