@@ -6,6 +6,8 @@ import {
     decrementPlayerHealth,
     deleteEnemy,
     deletePlayer,
+    getEnemyById,
+    getPlayerById,
     incrementEnemyHealth,
     incrementPlayerHealth,
 } from './fetch-utils.js';
@@ -34,7 +36,13 @@ export function renderEnemies(data) {
     const imgDiv = document.createElement('div');
     const name = document.createElement('h3');
     const ul = document.createElement('ul');
-    const hp = document.createElement('li');
+
+
+    const hpContainer = document.createElement('li');
+    const HP = document.createElement('span');
+    HP.setAttribute('id', `HP-${data.id}`);
+
+
     const ac = document.createElement('li');
     const init = document.createElement('li');
 
@@ -49,7 +57,8 @@ export function renderEnemies(data) {
     // populate
     imgDiv.style.backgroundImage = `url('${data.image}')`;
     name.textContent = data.name;
-    hp.textContent = `HP: ${data.hp}`;
+    hpContainer.textContent = 'HP: ';
+    HP.textContent = data.hp;
     ac.textContent = `AC: ${data.ac}`;
     init.textContent = `INIT: ${data.init}`;
 
@@ -59,17 +68,21 @@ export function renderEnemies(data) {
 
     decreaseBtn.addEventListener('click', async () => {
         await decrementEnemyHealth(data.id, value.value);
-        await fetchAndDisplayEnemies();
+        const hpId = document.getElementById(`HP-${data.id}`);
+        const newData = await getEnemyById(data.id);
+        hpId.textContent = newData.hp;
     });
 
     increaseBtn.addEventListener('click', async () => {
         await incrementEnemyHealth(data.id, value.value);
-        await fetchAndDisplayEnemies();
+        const hpId = document.getElementById(`HP-${data.id}`);
+        const newData = await getEnemyById(data.id);
+        hpId.textContent = newData.hp;
     });
 
     removeBtn.addEventListener('click', async () => {
         await deleteEnemy(data.id);
-        console.log('data.id', data.id);
+        // console.log('data.id', data.id);
         await fetchAndDisplayEnemies();
     });
 
@@ -85,7 +98,7 @@ export function renderEnemies(data) {
     removeBtn.classList.add('remove-button');
 
     // consolidate
-    ul.append(hp, ac, init);
+    ul.append(hpContainer, HP, ac, init);
     healthDiv.append(increaseBtn, value, decreaseBtn);
     enemyDiv.append(removeBtn, healthDiv, ul, name, imgDiv);
 
@@ -98,7 +111,12 @@ export function renderPlayers(data) {
     const imgDiv = document.createElement('div');
     const name = document.createElement('h3');
     const ul = document.createElement('ul');
-    const hp = document.createElement('li');
+
+    const hpContainer = document.createElement('li');
+    const HP = document.createElement('span');
+    HP.setAttribute('id', `HP-${data.id}`);
+
+
     const ac = document.createElement('li');
     const init = document.createElement('li');
 
@@ -113,7 +131,8 @@ export function renderPlayers(data) {
     // populate
     imgDiv.style.backgroundImage = `url('${data.image}')`;
     name.textContent = data.name;
-    hp.textContent = `HP: ${data.hp}`;
+    hpContainer.textContent = 'HP: ';
+    HP.textContent = data.hp;
     ac.textContent = `AC: ${data.ac}`;
     init.textContent = `INIT: ${data.init}`;
 
@@ -128,12 +147,16 @@ export function renderPlayers(data) {
 
     decreaseBtn.addEventListener('click', async () => {
         await decrementPlayerHealth(data.id, value.value);
-        await fetchAndDisplayPlayers();
+        const hpId = document.getElementById(`HP-${data.id}`);
+        const newData = await getPlayerById(data.id);
+        hpId.textContent = newData.hp;
     });
 
     increaseBtn.addEventListener('click', async () => {
         await incrementPlayerHealth(data.id, value.value);
-        await fetchAndDisplayPlayers();
+        const hpId = document.getElementById(`HP-${data.id}`);
+        const newData = await getPlayerById(data.id);
+        hpId.textContent = newData.hp;
     });
 
     // style
@@ -148,7 +171,7 @@ export function renderPlayers(data) {
     removeBtn.classList.add('remove-button');
 
     // consolidate
-    ul.append(hp, ac, init);
+    ul.append(hpContainer, HP, ac, init);
     healthDiv.append(increaseBtn, value, decreaseBtn);
     playerDiv.append(imgDiv, name, ul, healthDiv, removeBtn);
 

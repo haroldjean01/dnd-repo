@@ -160,8 +160,18 @@ export async function deletePlayer(id) {
     return checkError(response);
 }
 
+
+async function yea() {
+    const data = await getEnemyById(69);
+    return data.hp;
+}
+
+
+
+
 // console checks
 // console.log('enemies_Presets', getEnemyPresets());
 // console.log('players', getPlayers());
 // console.log('getEnemies()', getEnemies());
-console.log('getUser()', getUser().id);
+// console.log('getUser()', getUser().id);
+console.log(yea());
