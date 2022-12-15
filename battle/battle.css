@@ -94,6 +94,7 @@
     gap: 10px;
     border: solid rgb(255, 255, 255) 3px;
     justify-content: center;
+    align-items: center;
 }
 
 #create-div h2,
@@ -109,7 +110,7 @@ p {
 }
 
 #image-preview {
-    margin-left: 30px;
+    margin-left: 15px;
 }
 
 #preset-selector {
@@ -134,6 +135,7 @@ p {
 
 #hide-toggle {
     border-radius: 15px;
+    margin-right: 60px;
 }
 
 #preset-selector button {
@@ -169,7 +171,6 @@ p {
 
 #create-buttons button {
     border-radius: 15px;
-    background-color: ;
 }
 
 #create-form-div {
@@ -248,11 +249,24 @@ p {
     color: white;
 }
 
+.enemy-remove-button {
+    height: fit-content;
+    width: 155px;
+    background-color: rgb(88, 35, 35);
+    color: white;
+}
+
 .stats {
     background-color: rgba(255, 228, 196, 0.151);
     color: white;
     width: 140px;
     height: fit-content;
+    text-align: center;
+}
+
+span {
+    color: red;
+    background-color: black;
 }
 
 .player {

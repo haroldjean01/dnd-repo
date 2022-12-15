@@ -57,7 +57,7 @@ export function renderEnemies(data) {
     // populate
     imgDiv.style.backgroundImage = `url('${data.image}')`;
     name.textContent = data.name;
-    hpContainer.textContent = 'HP: ';
+    hpContainer.textContent = 'HP';
     HP.textContent = data.hp;
     ac.textContent = `AC: ${data.ac}`;
     init.textContent = `INIT: ${data.init}`;
@@ -95,7 +95,7 @@ export function renderEnemies(data) {
     increaseBtn.classList.add('increase');
     value.classList.add('health-input');
     decreaseBtn.classList.add('decrease');
-    removeBtn.classList.add('remove-button');
+    removeBtn.classList.add('enemy-remove-button');
 
     // consolidate
     ul.append(hpContainer, HP, ac, init);
@@ -131,7 +131,7 @@ export function renderPlayers(data) {
     // populate
     imgDiv.style.backgroundImage = `url('${data.image}')`;
     name.textContent = data.name;
-    hpContainer.textContent = 'HP: ';
+    hpContainer.textContent = 'HP';
     HP.textContent = data.hp;
     ac.textContent = `AC: ${data.ac}`;
     init.textContent = `INIT: ${data.init}`;

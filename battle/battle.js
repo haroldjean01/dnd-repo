@@ -45,12 +45,12 @@ const formINT = document.querySelector('[name=int]');
 const formWIS = document.querySelector('[name=wis]');
 const formCHA = document.querySelector('[name=cha]');
 
-const formLabelstr = document.getElementById('str-label');
-const formLabeldex = document.getElementById('dex-label');
-const formLabelcon = document.getElementById('con-label');
-const formLabelint = document.getElementById('int-label');
-const formLabelwis = document.getElementById('wis-label');
-const formLabelcha = document.getElementById('cha-label');
+const formLabelStr = document.getElementById('str-label');
+const formLabelDex = document.getElementById('dex-label');
+const formLabelCon = document.getElementById('con-label');
+const formLabelInt = document.getElementById('int-label');
+const formLabelWis = document.getElementById('wis-label');
+const formLabelCha = document.getElementById('cha-label');
 
 // States
 
@@ -62,12 +62,12 @@ hideToggleButton.addEventListener('click', () => {
     formINT.classList.toggle('hidden');
     formWIS.classList.toggle('hidden');
     formCHA.classList.toggle('hidden');
-    formLabelstr.classList.toggle('hidden');
-    formLabeldex.classList.toggle('hidden');
-    formLabelcon.classList.toggle('hidden');
-    formLabelint.classList.toggle('hidden');
-    formLabelwis.classList.toggle('hidden');
-    formLabelcha.classList.toggle('hidden');
+    formLabelStr.classList.toggle('hidden');
+    formLabelDex.classList.toggle('hidden');
+    formLabelCon.classList.toggle('hidden');
+    formLabelInt.classList.toggle('hidden');
+    formLabelWis.classList.toggle('hidden');
+    formLabelCha.classList.toggle('hidden');
     if (hideToggleButton.textContent === 'Show Additional Stats') {
         hideToggleButton.textContent = 'Hide Additional Stats';
     } else {
@@ -169,7 +169,18 @@ playersButton.addEventListener('click', async () => {
 // });
 
 formClear.addEventListener('click', () => {
-    formEl.reset();
+    imagePreview.src = '/assets/5e.png';
+    formImagePreset.value = '';
+    formName.value = '';
+    formAc.value = '';
+    formInit.value = '';
+    formHp.value = '';
+    formSTR.value = '';
+    formDEX.value = '';
+    formCON.value = '';
+    formINT.value = '';
+    formWIS.value = '';
+    formCHA.value = '';
 });
 
 imageInput.addEventListener('change', () => {

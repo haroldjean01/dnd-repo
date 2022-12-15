@@ -174,4 +174,4 @@ async function yea() {
 // console.log('players', getPlayers());
 // console.log('getEnemies()', getEnemies());
 // console.log('getUser()', getUser().id);
-console.log(yea());
+// console.log(yea());
