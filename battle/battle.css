@@ -1,5 +1,6 @@
 .battle {
     background-image: url(/assets/stone-background.jpg);
+    background-size: 100px 100px;
 }
 
 .battle-page {
