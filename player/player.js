@@ -16,7 +16,7 @@ const imageInput = document.getElementById('image-input');
 // Events
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
+    
     const user = await getUser();
     const data = new FormData(form);
     const playerObject = {
@@ -24,6 +24,7 @@ form.addEventListener('submit', async (e) => {
         ac: data.get('armor'),
         init: data.get('init'),
         hp: data.get('hp'),
+        owner: user.id,
         STR: data.get('str'),
         DEX: data.get('dex'),
         CON: data.get('con'),

@@ -145,7 +145,6 @@ addPlayerButton.addEventListener('click', async (e) => {
 });
 
 self.addEventListener('load', async () => {
-    await getPlayerById();
     fetchAndDisplayEnemies();
     fetchAndDisplayPlayers();
 });

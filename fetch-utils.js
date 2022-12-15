@@ -28,6 +28,7 @@ export async function signOutUser() {
 }
 
 function checkError(response) {
+    // eslint-disable-next-line no-console
     return response.error ? console.error(response.error) : response.data;
 }
 
@@ -68,8 +69,8 @@ export async function createPlayer(player) {
 }
 
 export async function createPlayerPreset(player) {
-    const response = await client.from('player_presets').insert(player).single();
-
+    const response = await client.from('player_presets').upsert(player, { onConflict: 'owner' }).single();
+    
     return checkError(response);
 }
 
@@ -109,13 +110,13 @@ export async function incrementPlayerHealth(id, amount) {
 
 export async function decrementEnemyHealth(id, amount) {
     const enemy = await getEnemyById(id);
-    console.log('enemy.hp', enemy.hp);
+    // console.log('enemy.hp', enemy.hp);
     const response = await client
         .from('enemies')
         .update({ hp: enemy.hp - amount })
         .match({ id: id });
 
-    console.log('response', response);
+    // console.log('response', response);
     checkError(response);
 }
 
@@ -163,3 +164,4 @@ export async function deletePlayer(id) {
 // console.log('enemies_Presets', getEnemyPresets());
 // console.log('players', getPlayers());
 // console.log('getEnemies()', getEnemies());
+console.log('getUser()', getUser().id);
